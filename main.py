@@ -6,7 +6,7 @@ import tkinter as tk
 root = tk.Tk()
 root.title("Simple CalculatorPy")
 
-entry = tk.Entry(root, width=35, borderwidth=5)
+entry = tk.Entry(root, width=35, borderwidth=5, font=("Arial", 12))
 entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
 def button_click(number):
@@ -65,37 +65,37 @@ def button_equal():
         entry.insert(0, f_num / float(second_number))
 
 
-button_1 = tk.Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
-button_2 = tk.Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
-button_3 = tk.Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
-button_4 = tk.Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
-button_5 = tk.Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
-button_6 = tk.Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
-button_7 = tk.Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7))
-button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
-button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
-button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
-button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_add)
-button_subtract = tk.Button(root, text="-", padx=41, pady=20, command=button_subtract)
-button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_multiply)
-button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide)
-button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal)
+button_1 = tk.Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1), bg="#f0f0f0", font=("Arial", 14))
+button_2 = tk.Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2), bg="#f0f0f0", font=("Arial", 14))
+button_3 = tk.Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3), bg="#f0f0f0", font=("Arial", 14))
+button_4 = tk.Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4), bg="#f0f0f0", font=("Arial", 14))
+button_5 = tk.Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5), bg="#f0f0f0", font=("Arial", 14))
+button_6 = tk.Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6), bg="#f0f0f0", font=("Arial", 14))
+button_7 = tk.Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7), bg="#f0f0f0", font=("Arial", 14))
+button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8), bg="#f0f0f0", font=("Arial", 14))
+button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9), bg="#f0f0f0", font=("Arial", 14))
+button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0), bg="#f0f0f0", font=("Arial", 14))
+button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_add, bg="#ffcccb", font=("Arial", 14))
+button_subtract = tk.Button(root, text="-", padx=41, pady=20, command=button_subtract, bg="#ffcccb", font=("Arial", 14))
+button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_multiply, bg="#ffcccb", font=("Arial", 14))
+button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide, bg="#ffcccb", font=("Arial", 14))
+button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal, bg="#90ee90", font=("Arial", 14))
 
 def button_clear():
     entry.delete(0, tk.END)
-button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_clear)
+button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_clear, bg="#f0e68c", font=("Arial", 14))
 
 def button_add_point():
     current = entry.get()
     if "." not in current:
         entry.insert(tk.END, ".")
 
-button_point = tk.Button(root, text=".", padx=42, pady=20, command=button_add_point)
+button_point = tk.Button(root, text=".", padx=42, pady=20, command=button_add_point, bg="#f0f0f0", font=("Arial", 14))
 
 def button_backspace():
     current = entry.get()
     entry.delete(len(current) - 1)
-button_backspace = tk.Button(root, text="⌫", padx=37, pady=20, command=button_backspace)
+button_backspace = tk.Button(root, text="⌫", padx=37, pady=20, command=button_backspace, bg="#ffcccb", font=("Arial", 14))
 
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)

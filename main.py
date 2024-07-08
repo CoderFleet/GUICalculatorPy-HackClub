@@ -80,9 +80,22 @@ button_subtract = tk.Button(root, text="-", padx=41, pady=20, command=button_sub
 button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_multiply)
 button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide)
 button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal)
-button_clear = tk.Button(root, text="Clear", padx=79, pady=20)
-button_point = tk.Button(root, text=".", padx=42, pady=20)
-button_backspace = tk.Button(root, text="⌫", padx=37, pady=20)
+
+def button_clear():
+    entry.delete(0, tk.END)
+button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_clear)
+
+def button_add_point():
+    current = entry.get()
+    if "." not in current:
+        entry.insert(tk.END, ".")
+
+button_point = tk.Button(root, text=".", padx=42, pady=20, command=button_add_point)
+
+def button_backspace():
+    current = entry.get()
+    entry.delete(len(current) - 1)
+button_backspace = tk.Button(root, text="⌫", padx=37, pady=20, command=button_backspace)
 
 button_1.grid(row=3, column=0)
 button_2.grid(row=3, column=1)

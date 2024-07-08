@@ -6,7 +6,6 @@ import tkinter as tk
 root = tk.Tk()
 root.title("Simple CalculatorPy")
 
-
 entry = tk.Entry(root, width=35, borderwidth=5)
 entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
 
@@ -14,6 +13,57 @@ def button_click(number):
     current = entry.get()
     entry.delete(0, tk.END)
     entry.insert(0, str(current) + str(number))
+
+def button_add():
+    first_number = entry.get()
+    global f_num
+    global math
+    math = "addition"
+    f_num = float(first_number)
+    entry.delete(0, tk.END)
+
+def button_subtract():
+    first_number = entry.get()
+    global f_num
+    global math
+    math = "subtraction"
+    f_num = float(first_number)
+    entry.delete(0, tk.END)
+
+def button_multiply():
+    first_number = entry.get()
+    global f_num
+    global math
+    math = "multiplication"
+    f_num = float(first_number)
+    entry.delete(0, tk.END)
+
+def button_divide():
+    first_number = entry.get()
+    global f_num
+    global math
+    math = "division"
+    f_num = float(first_number)
+    entry.delete(0, tk.END)
+
+def button_equal():
+    second_number = entry.get()
+    global f_num
+    global math
+    entry.delete(0, tk.END)
+
+    if math == "addition":
+        entry.insert(0, f_num + float(second_number))
+
+    if math == "subtraction":
+        entry.insert(0, f_num - float(second_number))
+
+    if math == "multiplication":
+        entry.insert(0, f_num * float(second_number))
+
+    if math == "division":
+        entry.insert(0, f_num / float(second_number))
+
 
 button_1 = tk.Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
 button_2 = tk.Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
@@ -25,11 +75,11 @@ button_7 = tk.Button(root, text="7", padx=40, pady=20, command=lambda: button_cl
 button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
 button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
 button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
-button_add = tk.Button(root, text="+", padx=39, pady=20)
-button_subtract = tk.Button(root, text="-", padx=41, pady=20)
-button_multiply = tk.Button(root, text="*", padx=40, pady=20)
-button_divide = tk.Button(root, text="/", padx=41, pady=20)
-button_equal = tk.Button(root, text="=", padx=91, pady=20)
+button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_add)
+button_subtract = tk.Button(root, text="-", padx=41, pady=20, command=button_subtract)
+button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_multiply)
+button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide)
+button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal)
 button_clear = tk.Button(root, text="Clear", padx=79, pady=20)
 button_point = tk.Button(root, text=".", padx=42, pady=20)
 button_backspace = tk.Button(root, text="⌫", padx=37, pady=20)

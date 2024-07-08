@@ -1,13 +1,16 @@
 # User Instructions
 # pip install tk
 import tkinter as tk
+import math
 
 
 root = tk.Tk()
 root.title("Simple CalculatorPy")
+root.resizable(False, False)
+
 
 entry = tk.Entry(root, width=35, borderwidth=5, font=("Arial", 12))
-entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10)
+entry.grid(row=0, column=0, columnspan=4, padx=10, pady=10, ipady=10)
 
 def button_click(number):
     current = entry.get()
@@ -46,6 +49,26 @@ def button_divide():
     f_num = float(first_number)
     entry.delete(0, tk.END)
 
+def button_sin():
+    number = float(entry.get())
+    entry.delete(0, tk.END)
+    entry.insert(0, math.sin(number))
+
+def button_cos():
+    number = float(entry.get())
+    entry.delete(0, tk.END)
+    entry.insert(0, math.cos(number))
+
+def button_tan():
+    number = float(entry.get())
+    entry.delete(0, tk.END)
+    entry.insert(0, math.tan(number))
+
+def button_sqrt():
+    number = float(entry.get())
+    entry.delete(0, tk.END)
+    entry.insert(0, math.sqrt(number))
+
 def button_equal():
     second_number = entry.get()
     global f_num
@@ -81,6 +104,11 @@ button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_mul
 button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide, bg="#ffcccb", font=("Arial", 14))
 button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal, bg="#90ee90", font=("Arial", 14))
 
+button_sin = tk.Button(root, text="sin", padx=36, pady=20, command=button_sin, bg="#add8e6", font=("Arial", 14))
+button_cos = tk.Button(root, text="cos", padx=36, pady=20, command=button_cos, bg="#add8e6", font=("Arial", 14))
+button_tan = tk.Button(root, text="tan", padx=36, pady=20, command=button_tan, bg="#add8e6", font=("Arial", 14))
+button_sqrt = tk.Button(root, text="√", padx=38, pady=20, command=button_sqrt, bg="#add8e6", font=("Arial", 14))
+
 def button_clear():
     entry.delete(0, tk.END)
 button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_clear, bg="#f0e68c", font=("Arial", 14))
@@ -111,9 +139,15 @@ button_add.grid(row=5, column=0)
 button_subtract.grid(row=6, column=0)
 button_multiply.grid(row=6, column=1)
 button_divide.grid(row=6, column=2)
+
+button_sin.grid(row=1, column=3)
+button_cos.grid(row=2, column=3)
+button_tan.grid(row=3, column=3)
+button_sqrt.grid(row=4, column=3)
+
 button_equal.grid(row=5, column=1, columnspan=2)
 button_clear.grid(row=4, column=1, columnspan=2)
-button_point.grid(row=4, column=3)
+button_point.grid(row=5, column=3)
 button_backspace.grid(row=0, column=3)
 
 
